@@ -1,0 +1,14 @@
+# El Dockerfile define el entorno
+# Importar el tiempo de ejecución de Python y configurar el directorio de trabajo
+FROM python:3.7-slim
+WORKDIR /app
+ADD . /app
+
+# Instala dependencias
+RUN pip install -r requirements.txt
+
+# Abrir el puerto 80 para servir la página web.
+EXPOSE 80
+
+# Ejecute app.py cuando se inicie el contenedor
+CMD ["python", "app.py"]
